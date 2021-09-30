@@ -1,10 +1,20 @@
-from tkinter import Tk ,Label
+from tkinter import Tk, Label
+from datetime import datetime
 
 
-window =Tk()
+window = Tk()
 window.title("digital clock")
 window.geometry("600x600")
-window.configure(bg="pink")
-label =Label(window,font=("aerial darkblack ",79,'bold'),bg="pink",fg="white")
+window.configure(bg="steelblue")
+label = Label(window, font=("aerial darkblack ",
+              79, 'bold'), bg="steelblue", fg="white")
 label.pack(pady=100)
+
+
+def clock():
+
+  time = datetime.now().strftime("%H:%M:%S")
+  label.configure(text=time)
+  label.after(500, clock)
+clock()
 window.mainloop()
